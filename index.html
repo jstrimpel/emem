@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>emem</title>
+    </head>
+    <body>
+        <div id="test">
+            <div id="test1"><div></div></div>
+            <div id="test2"><div></div></div>
+            <div id="test3"><div></div></div>
+            <div id="test4"><div></div></div>
+        </div>
+        <script src="jquery.1.7.2.js"></script> 
+        <script>
+            window.jq17 = jQuery.noConflict();
+        </script>
+        <script src="jquery.1.6.4.js"></script>       
+        <script>
+            window.jq16 = jQuery.noConflict();
+        </script>
+        <script src="emem.js"></script>
+        <script>
+            (function () {
+                'use strict';
+                var emem = window.emem;
+                
+                jq16('#test1 div').click(function () {});
+                jq16('#test2 div').click(function () {});
+                jq17('#test3 div').click(function () {});
+                jq17('#test4 div').click(function () {});
+                
+                jq17('#test1')[0].innerHTML = '';
+                jq16('#test4')[0].innerHTML = '';
+                
+                emem.conf({
+                    libs : {
+                        jQuery: { versions: ['jq16', 'jq17']}                        
+                    }
+                });
+                
+                console.log(emem.garbage().length);
+                
+                setTimeout(function () {
+                    emem.release();
+                    console.log(emem.garbage().length);                    
+                }, 5000);
+                
+            })();                        
+        </script>
+    </body>
+</html>
