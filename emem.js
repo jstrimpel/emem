@@ -53,12 +53,16 @@
                 if (obj[key].handle)
                     return obj[key];
             }
+        }; 
+        
+        var validEl = function (el) {
+            return (el !== window.document && el !== window) // either does not have a parentNode or cannot be removed           
         };            
                                            
         for (data in cache) {
             item = cache[data].handle ? cache[data] : legacy(cache[data], jq);                        
             
-            if (!item.handle.elem.parentNode) {                     
+            if (item && !item.handle.elem.parentNode && validEl(item.handle.elem)) {                     
                 for (type in item.events) {
                     switch (operation) {
                         case 'get':
@@ -69,7 +73,7 @@
                             break;                            
                     }
                 }                                                 
-            }                        
+            }             
         }
         
         return refs;                 
@@ -96,7 +100,10 @@
     
     emem.release = function (args) {
         return _emem.lookup(_emem.extend({returnVal: true, operation: 'release'}, (args ? args : {})));
-    };        
+    };   
     
-    window.emem = window.emem || emem;     
+    if (typeof define === 'function')
+        define(emem);
+    else
+        window.emem = window.emem || emem;         
 })();
