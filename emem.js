@@ -1,7 +1,3 @@
-/*
- * TODO: add verbose mode
- * TODO: add the ability to filter lookups
- */
 (function () {
     'use strict';
     
