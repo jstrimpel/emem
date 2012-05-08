@@ -22,7 +22,7 @@ Sets the libraries to be examined. The alias names are assumed to be attached to
 ```javascript
 emem.conf({
 	libs : {
-		jQuery: { versions: ['jq16', 'jq17']} // alias names; currently assumes                         
+		jQuery: { versions: ['jq16', 'jq17']}                         
 	}
 });
 ```
