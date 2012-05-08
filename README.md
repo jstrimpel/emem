@@ -4,20 +4,24 @@
 +-++-++-++-+
 ````
 
+Development Status
+------------------
+Currently seeking feedback from the community.
+
 Use Case
 --------
-Another JavaScript library or developer accidently blows content out the DOM leaving event handlers lingering with references to the removed elements causing memory leaks.
+Another JavaScript library or another developer's code blows content out the DOM accidently leaving event handlers behind with references to the removed elements causing memory leaks.
 
 Solution
 --------
-Emem provides the ability to view event handlers from various JavaScript libraries.
+Emem provides the ability to view event handlers from various JavaScript libraries anf identifies those attached to orphaned elements.
 
 API
 ---
 This API will likely change. I am currently seeking feedback from the community as to whether emem is even useful and if useful what features would be most beneficial.
 
 ### emem.conf()
-Sets the libraries to be examined. The alias names are assumed to be attached to window. Eventually a string representation of the library location or direct references to the libraries will be accepted.
+Sets the libraries to be examined. The alias names are assumed to be attached to window. Eventually a string representation of the library location or a direct reference to the library will be accepted.
 
 ```javascript
 emem.conf({
