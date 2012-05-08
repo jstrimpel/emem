@@ -10,7 +10,7 @@ Currently seeking feedback from the community.
 
 Use Case
 --------
-Another JavaScript library or another developer's code blows content out the DOM accidently leaving event handlers behind with references to the removed elements causing memory leaks. 
+Another JavaScript library or developer's code blows content out the DOM accidently leaving event handlers behind with references to the removed elements causing memory leaks. 
 You are running mulitple versions of the same JavaScript library, possibly to support legacy code, and memory is leaking because each version has references to some of the same elements. 
 
 Solution
